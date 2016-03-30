@@ -197,6 +197,7 @@ class Executor(object):
 
             return completed
         except Exception as e:
+            logger.exception()
             ctx.errors.append(e)
             return None
 

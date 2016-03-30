@@ -1,7 +1,12 @@
+import logging
+
 from .execution import ExecutionResult, execute
 from .language.parser import parse
 from .language.source import Source
 from .validation import validate
+
+
+logger = logging.getLogger(__name__)
 
 
 def graphql(schema, request='', root=None, args=None, operation_name=None):
@@ -22,6 +27,7 @@ def graphql(schema, request='', root=None, args=None, operation_name=None):
             args or {},
         )
     except Exception as e:
+        logger.exception()
         return ExecutionResult(
             errors=[e],
             invalid=True,
