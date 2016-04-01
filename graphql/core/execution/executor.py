@@ -197,7 +197,7 @@ class Executor(object):
 
             return completed
         except Exception as e:
-            logger.exception()
+            logger.exception('GraphQL exception Occured')
             ctx.errors.append(e)
             return None
 

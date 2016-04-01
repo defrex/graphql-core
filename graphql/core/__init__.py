@@ -27,7 +27,7 @@ def graphql(schema, request='', root=None, args=None, operation_name=None):
             args or {},
         )
     except Exception as e:
-        logger.exception()
+        logger.exception('GraphQL exception Occured')
         return ExecutionResult(
             errors=[e],
             invalid=True,
